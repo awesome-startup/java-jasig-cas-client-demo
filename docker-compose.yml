@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  app:
+    image:  maven:alpine
+    working_dir: /app
+    ports:
+      - 8080:8080
+    extra_hosts:
+      - cas-server.tiger.wizmacau.com:192.168.20.22
+    volumes:
+      - .:/app
+    command: mvn clean compile jetty:run
